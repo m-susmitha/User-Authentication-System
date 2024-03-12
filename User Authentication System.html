@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Authentication System</h1>
+        <div id="loginForm">
+            <h2>Login</h2>
+            <p id="loginMessage" class="message"></p>
+            <input type="text" id="loginUsername" placeholder="Username" required>
+            <br>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <br>
+            <button onclick="login()">Login</button>
+        </div>
+
+        <div id="registerForm" style="display: none;">
+            <h2>Register</h2>
+            <p id="registerMessage" class="message"></p>
+            <input type="text" id="registerUsername" placeholder="Username" required>
+            <br>
+            <input type="password" id="registerPassword" placeholder="Password" required>
+            <br>
+            <button onclick="register()">Register</button>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById('loginUsername').value;
+            var password = document.getElementById('loginPassword').value;
+
+            // Add your authentication logic here
+            // Example: send a request to the server for validation
+
+            // For demonstration purposes, we'll show a message
+            document.getElementById('loginMessage').innerText = 'Login successful!';
+        }
+
+        function register() {
+            var username = document.getElementById('registerUsername').value;
+            var password = document.getElementById('registerPassword').value;
+
+            // Add your registration logic here
+            // Example: send a request to the server to create a new user
+
+            // For demonstration purposes, we'll show a message
+            document.getElementById('registerMessage').innerText = 'Registration successful!';
+        }
+
+        function toggleForms() {
+            var loginForm = document.getElementById('loginForm');
+            var registerForm = document.getElementById('registerForm');
+
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            }
+        }
+    </script>
+    <button onclick="toggleForms()">Toggle Forms</button>
+</body>
+</html>
